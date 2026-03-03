@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ch11:jar">
+    <output-path>$USER_HOME$/Desktop</output-path>
+    <root id="archive" name="ch11.jar">
+      <element id="module-output" name="ch11" />
+    </root>
+  </artifact>
+</component>
