@@ -1,6 +1,4 @@
-package testing.LevelFour;
-
-// класс с тремя типами кастомных диалоговых окон
+package testing.TextDesigner;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,47 +9,77 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.*;
 
+/**
+ * Класс-фабрика для создания пользовательских диалоговых окон.
+ * Предоставляет три типа диалогов: выбор гарнитуры, выбор размера шрифта
+ * и выбор цвета (в двух вариантах: наборный и плиточный).
+ */
 public class DialogWindows {
-    private static final Font font20 = new Font("Arial", Font.BOLD, 20); // основные шрифты для элементов интерфейса
+    private static final Font font20 = new Font("Arial", Font.BOLD, 20);
     private static final Font font12 = new Font("Arial", Font.BOLD, 12);
 
-    private static final int COMBO_DIALOG_W = 380; // размеры окна
+    private static final int COMBO_DIALOG_W = 380;
     private static final int COMBO_DIALOG_H = 110;
 
-    // 3 статических метода получения диалоговых окон
-
+    /**
+     * Создает диалоговое окно для выбора гарнитуры шрифта.
+     *
+     * @param f родительское окно
+     * @param i неиспользуемый параметр (зарезервирован)
+     * @return объект диалога {@link TextAdder}
+     * @throws IOException если возникает ошибка при чтении файла со списком шрифтов
+     */
     public static TextAdder getTextAddedDialog(JFrame f, int i) throws IOException {
         return new TextAdder(f);
     }
 
+    /**
+     * Создает диалоговое окно для выбора цвета.
+     *
+     * @param f родительское окно
+     * @param t тип диалога: {@code true} - наборный (ползунки RGB), {@code false} - плитка
+     * @param currColor текущий цвет для инициализации
+     * @return объект диалога {@link TextColorChooser}
+     */
     public static TextColorChooser getTextColorChooser(JFrame f, boolean t, Color currColor){
         return new TextColorChooser(f, t, currColor);
     }
 
+    /**
+     * Создает диалоговое окно для выбора размера шрифта.
+     *
+     * @param f родительское окно
+     * @param i индекс начального выбора в комбобоксе
+     * @return объект диалога {@link TextSizeChooser}
+     */
     public static TextSizeChooser getTextSizeChooser(JFrame f, int i){
         return new TextSizeChooser(f, i);
     }
 
-    public static class TextAdder extends JPanel { // диалоговое окно выбора гарнитуры
-        private boolean ok = false; // переменная-результат вызова окна. флаг для вызова геттера получения выбора из класса.
-                                    // Нужна для связи диалога и всего приложения. По умолчанию - ложь
-        private JFrame owner = null; // владелец диалога, используется в конструировании JDialog
-        private JDialog dialog = null; // окно-обертка JDialog
-        private JComboBox<String> fontCombo = null; // комбобокс выбора имени гарнитуры
+    /**
+     * Диалоговое окно для выбора гарнитуры шрифта из выпадающего списка.
+     * Список шрифтов загружается из файла /fonts.txt в ресурсах.
+     */
+    public static class TextAdder extends JPanel {
+        private boolean ok = false;
+        private JFrame owner = null;
+        private JDialog dialog = null;
+        private JComboBox<String> fontCombo = null;
 
+        /**
+         * Создает панель выбора гарнитуры.
+         *
+         * @param o родительское окно
+         * @throws IOException если возникает ошибка при чтении файла со шрифтами
+         */
         public TextAdder(JFrame o) throws IOException {
             owner = o;
 
-            fontCombo = new JComboBox<>(getFontsFromFile().toArray(new String[0])); // формирование комбобокса по именам
-                                                    // шрифтов из файла (можно заменить на getAvailableFontFamilyNames()
-                                                    // из GraphicsEnvironment())
+            fontCombo = new JComboBox<>(getFontsFromFile().toArray(new String[0]));
 
-            JPanel btnPanel = new JPanel(); // панель кнопок диалогового окна
+            JPanel btnPanel = new JPanel();
             CustomBtn okBtn = new CustomBtn("ок", font12, (e) -> {ok = true; dialog.setVisible(false);});
-                // создание кнопки ок, при её нажатии параметр "ок" переводится в true, что значит в основной программе
-                // возможность получения результата выбора после вызова showDialog()
             CustomBtn cancelBtn = new CustomBtn("отмена", font12, (e) -> {dialog.setVisible(false);});
-                // просто убрать диалог, в программу вернётся false
             setLayout(new BorderLayout());
             btnPanel.setLayout(new FlowLayout());
 
@@ -64,12 +92,17 @@ public class DialogWindows {
             add(fontCombo, BorderLayout.CENTER);
         }
 
-        private LinkedList<String> getFontsFromFile() throws IOException { // получение списка шрифтов из файла
+        /**
+         * Загружает список доступных шрифтов из файла ресурсов.
+         *
+         * @return список названий шрифтов
+         * @throws IOException если возникает ошибка чтения
+         */
+        private LinkedList<String> getFontsFromFile() throws IOException {
             String line = null;
             LinkedList<String> items = new LinkedList<>();
             try (InputStream inputStream = getClass().getResourceAsStream("/fonts.txt");
                  BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
-                // ресурс как поток из /recources/...
 
                 while ((line = reader.readLine()) != null) {
                     items.add(line);
@@ -79,10 +112,15 @@ public class DialogWindows {
             return items;
         }
 
-        public boolean showDialog(){ // метод для вызова окна из приложения, на возврат - флаг согласия
+        /**
+         * Отображает диалоговое окно и ожидает ответа пользователя.
+         *
+         * @return {@code true} если пользователь нажал "ок", иначе {@code false}
+         */
+        public boolean showDialog(){
             if (dialog == null){
-                dialog = new JDialog(owner, true); // JDialog - база всех диалоговых окно, подобна JFrame. Модальное
-                dialog.add(this); // добавление в базу диалогового окна наполнения из панели
+                dialog = new JDialog(owner, true);
+                dialog.add(this);
                 dialog.setSize(new Dimension(COMBO_DIALOG_W, COMBO_DIALOG_H));
                 dialog.setTitle("Выбор шрифта");
                 dialog.setIconImage(
@@ -93,29 +131,43 @@ public class DialogWindows {
                 dialog.setResizable(false);
             }
             dialog.setVisible(true);
-            return ok; // возврат значения ок
-            // окно модальное => программа останавливается на месте вызова и ждёт закрытия модального окна
+            return ok;
         }
 
+        /**
+         * Возвращает выбранную гарнитуру.
+         *
+         * @return название выбранного шрифта
+         */
         public String getText(){
             return Objects.requireNonNull(fontCombo.getSelectedItem()).toString();
-        } // метод для получения основной программой данных из диалогового окна
+        }
     }
 
-    public static class TextSizeChooser extends JPanel{ // окно выбора размера шрифта
+    /**
+     * Диалоговое окно для выбора размера шрифта.
+     * Предлагает размеры от 1 до 72 в выпадающем списке.
+     */
+    public static class TextSizeChooser extends JPanel{
         private boolean ok = false;
         private JDialog dialog = null;
         private JFrame owner = null;
-        private static ArrayList<Integer> items; // список доступных размеров
-        private JComboBox<Integer> sizeCombo = null; // комбобокс размеров
+        private static ArrayList<Integer> items;
+        private JComboBox<Integer> sizeCombo = null;
 
         {
-            items = new ArrayList<>(); // блок инициализации списка размеров
+            items = new ArrayList<>();
             for (int i = 1; i < 72; i++){
                 items.add(i);
             }
         }
 
+        /**
+         * Создает панель выбора размера.
+         *
+         * @param o родительское окно
+         * @param initIndex индекс для предварительного выбора
+         */
         public TextSizeChooser(JFrame o, int initIndex){
             owner = o;
             setLayout(new BorderLayout());
@@ -136,11 +188,21 @@ public class DialogWindows {
             add(btnPanel, BorderLayout.SOUTH);
         }
 
+        /**
+         * Возвращает выбранный размер шрифта.
+         *
+         * @return размер шрифта в пунктах
+         */
         public int getSizeFromCombo(){
             return sizeCombo.getItemAt(sizeCombo.getSelectedIndex());
-        } // возврат выбранного размера
+        }
 
-        public boolean showDialog(){ // метод для вызова из основного приложения
+        /**
+         * Отображает диалоговое окно и ожидает ответа пользователя.
+         *
+         * @return {@code true} если пользователь нажал "ок", иначе {@code false}
+         */
+        public boolean showDialog(){
             if (dialog == null){
                 dialog = new JDialog(owner, true);
                 dialog.add(this);
@@ -154,24 +216,26 @@ public class DialogWindows {
                 dialog.setTitle("Размер текста");
                 dialog.setVisible(true);
             }
-            return ok; // возврат флага результата
+            return ok;
         }
     }
 
-    public static class TextColorChooser extends JPanel{ // окно выбора цвета
+    /**
+     * Диалоговое окно для выбора цвета.
+     * Поддерживает два режима: наборный (ползунки RGB) и плиточный (выбор из палитры).
+     */
+    public static class TextColorChooser extends JPanel{
         private JDialog dialog = null;
         private JFrame owner = null;
         private boolean ok = false;
         private Color color = Color.BLACK;
         private boolean type = false;
 
-        private final HashMap<String, JSlider> sliders = new HashMap<>(3); // ползунки
+        private final HashMap<String, JSlider> sliders = new HashMap<>(3);
         private final LinkedHashMap<String, JLabel> valLabels = new LinkedHashMap<>(3);
-                          // отображение из пометок ползунков, связное - для порядка
         private final HashMap<String, JLabel> colorNameLabels = new HashMap<>(3);
-                          // отображение пометок-значений
 
-        private static final int[][] colors = { // массив цветов для плитки
+        private static final int[][] colors = {
                 {51,0,0},
                 {51, 25, 0},
                 {51, 51, 0},
@@ -204,53 +268,58 @@ public class DialogWindows {
                 {128, 128, 128}
         };
 
-        { // блок инициализации некоторых элементов интерфейса
-            valLabels.put("r", new JLabel("100")); // по умолчаию цвет - 100, 100, 100
+        {
+            valLabels.put("r", new JLabel("100"));
             valLabels.put("g", new JLabel("100"));
             valLabels.put("b", new JLabel("100"));
 
-            colorNameLabels.put("r", new JLabel("Красный")); // лейблы цветов для ползунков в RGB
+            colorNameLabels.put("r", new JLabel("Красный"));
             colorNameLabels.put("g", new JLabel("Зелёный"));
             colorNameLabels.put("b", new JLabel("Синий"));
 
-            sliders.put("r", new JSlider(0, 255, 100)); // создание ползунков от 0 до 255
-            sliders.put("g", new JSlider(0, 255, 100)); // с установкой значений по умолчанию - 100
+            sliders.put("r", new JSlider(0, 255, 100));
+            sliders.put("g", new JSlider(0, 255, 100));
             sliders.put("b", new JSlider(0, 255, 100));
         }
 
+        /**
+         * Создает панель выбора цвета.
+         *
+         * @param o родительское окно
+         * @param t тип диалога: {@code true} - наборный, {@code false} - плитка
+         * @param currColor текущий цвет для инициализации
+         */
         public TextColorChooser(JFrame o, boolean t, Color currColor){
 
             color = currColor;
 
-            sliders.get("r").setValue(currColor.getRed()); // установка значений ползунков по текущему цвету при вызове
-            sliders.get("g").setValue(currColor.getGreen()); // окна
+            sliders.get("r").setValue(currColor.getRed());
+            sliders.get("g").setValue(currColor.getGreen());
             sliders.get("b").setValue(currColor.getBlue());
 
-            valLabels.get("r").setText(currColor.getRed() + ""); // установка соотсетсвующих числовых индикаторов
+            valLabels.get("r").setText(currColor.getRed() + "");
             valLabels.get("g").setText(currColor.getGreen() + "");
             valLabels.get("b").setText(currColor.getBlue() + "");
 
 
-            type = t; // тип - плитка/наборный
+            type = t;
 
             setLayout(new GridBagLayout());
-            JPanel colorProbe = new JPanel(); // показатель выбираемого цвета
+            JPanel colorProbe = new JPanel();
             colorProbe.setBackground(currColor);
 
             owner = o;
 
-            JPanel sliderPanel = new JPanel(); // панель с ползунками
-            JPanel colorPalettePanel = new JPanel(); // панель с плиткой
+            JPanel sliderPanel = new JPanel();
+            JPanel colorPalettePanel = new JPanel();
 
             int i = 0;
-            if (type) { // формирование панели с ползунками
+            if (type) {
                 sliderPanel.setLayout(new GridBagLayout());
-                for (String s : valLabels.keySet()) { // проходка по представлению ключей из подписей ползунков
-                                                      // отображение подписаей - связное => ключи упорядочены при вводе
-                                                      // R - G - B
+                for (String s : valLabels.keySet()) {
                     colorNameLabels.get(s).setFont(font12);
                     valLabels.get(s).setFont(font12);
-                    sliders.get(s).addChangeListener((e) -> { // ChangeListener - перехватчик ползунка
+                    sliders.get(s).addChangeListener((e) -> {
                         valLabels.get(s).setText(sliders.get(s).getValue() + "");
                         colorProbe.setBackground(this.getColor());
                         color = new Color(
@@ -272,9 +341,9 @@ public class DialogWindows {
                     i++;
                 }
             }
-            else { // фрмирование панели с плиткой
-                colorPalettePanel.setLayout(new GridLayout(3, 10)); // сетка 3*10
-                for (int[] c : colors) { // перебор цветов из массива в формате RGB
+            else {
+                colorPalettePanel.setLayout(new GridLayout(3, 10));
+                for (int[] c : colors) {
                     Color cl = new Color(c[0], c[1], c[2]);
                     JButton cBtn = new JButton();
                     cBtn.setBackground(cl);
@@ -295,6 +364,11 @@ public class DialogWindows {
                     .setWeight(1, 0.1).setFill(GBC.BOTH));
         }
 
+        /**
+         * Отображает диалоговое окно и ожидает ответа пользователя.
+         *
+         * @return {@code true} если пользователь нажал "ок", иначе {@code false}
+         */
         public boolean showDialog(){
             if (dialog == null){
                 dialog = new JDialog(owner, true);
@@ -322,12 +396,28 @@ public class DialogWindows {
             return ok;
         }
 
-        public Color getColor(){ // метод для получения выбранного цвета
+        /**
+         * Возвращает выбранный цвет.
+         *
+         * @return объект {@link Color}
+         */
+        public Color getColor(){
             return color;
         }
     }
 
+    /**
+     * Вспомогательный класс для создания стандартизированных кнопок.
+     * Упрощает создание кнопок с заданным текстом, шрифтом и обработчиком.
+     */
     private static class CustomBtn extends JButton{
+        /**
+         * Создает кнопку с указанными параметрами.
+         *
+         * @param name текст на кнопке
+         * @param font шрифт кнопки
+         * @param listener обработчик нажатия
+         */
         public CustomBtn(String name, Font font, ActionListener listener){
             setText(name);
             addActionListener(listener);
