@@ -97,7 +97,7 @@ public class PhotoScrollFrame extends JFrame {
         setIconImage(new ImageIcon(
                 Objects.requireNonNull(
                         this.getClass().getResource("/photo.png"))).getImage());
-        setTitle("Фотосмотр - " + photoTitle);
+        setTitle("ФотоПросмотр - " + photoTitle);
 
         add(createScrollPanel(), new GBC(0, 0, 1, 1));
         add(createButtonPanel(), new GBC(0, 1, 1, 1));
