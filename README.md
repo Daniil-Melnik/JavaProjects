@@ -18,11 +18,17 @@
 </ul>
 
 <h1>Быстрый просмотр возможностей приложений</h1>
-<p>Для быстрого просмотра возможностей, предоставляемых приложениями, код которых представлен в этом репозитории, добавлен каталог <a href="jars">jars</a>.</p>
+<p>В репозитории представлен код нескольких приложений. Для быстрого просмотра возможностей, предоставляемых этими приложениями, добавлен каталог <a href="jars">jars</a>.</p>
 
 <p>В него помещены исполняемые jar-файлы приложений, которые можно запустить имея на ПК установленное ПО Java (JRE/JDK). Если приложение не запускается, возможна неполная установка Java (например отсутвие в перменной среды Path значения с папкой bin от Java) или устаревшая версия установленного JRE/JDK.</p>
 
-**Приложение "ФотоПросмотр"**
+<h1>Описание приложений</h1>
+<h2>"ФотоПросмотр"</h2>
+<ul>
+  <li>код - <a href="https://github.com/Daniil-Melnik/JavaProjects/tree/main/ch11/src/main/java/testing/PhotoViewer">ch11/src/main/java/testing/PhotoViewer</a></li>
+  <li>jar - <a href="https://github.com/Daniil-Melnik/JavaProjects/blob/main/jars/PhotoViewer.jar">jars/PhotoViewer.jar</a></li>
+</ul>
+<p></p>
 
 <img width="600" height="379" alt="phptosmotr1" src="https://github.com/user-attachments/assets/86b37527-d523-4554-b8bd-ae5dbf831c6c" />
 <img width="600" height="474" alt="phptosmotr2" src="https://github.com/user-attachments/assets/abf2cf68-2240-470d-9b90-a5c2ced4778b" />
