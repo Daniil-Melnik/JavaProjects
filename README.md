@@ -84,14 +84,34 @@
 <p>Пример расчета с учетом двоичной системы счиления</p>
 <img src="https://github.com/user-attachments/assets/1c641c8b-5509-44ce-b4cc-ed34bcc72f2b">
 
-**Пятнашка 3*3**
+****
+<h2>Пятнашка 3*3</h2>
+<p>Реализация игры Пятнашки в варианте поля 3*3. Правила стандартные. Поле представляет собой 9 ячеек, 8 из которых заняты числами а девятая - пустое место. Управление приложением
+<ul>
+  <li>
+    Загрузка/сохранение игры
+  </li>
+  <li>
+    Создание случайного поля
+  </li>
+  <li>
+    выключение приложения
+  </li>
+</ul>
+осуществляется средствами строки меню.</p>
 
+<p>Приложение включает в себя механизм сохранения состояния поля в файл и загрузку состояния поля из корректного по формату файла.</p>
+<p></p>
+<p>Выбор варианта новой игры</p>
+<img src="https://github.com/user-attachments/assets/c1b30296-4723-4729-ad1d-a2d4419176ee">
+<p></p>
+<p>Выдача сообщения в случае некорректного файла</p>
+<img src="https://github.com/user-attachments/assets/f9f861a8-2d90-4a8e-982c-0b496a2b380b">
+<p></p>
+<p></p>
 ![4](https://github.com/user-attachments/assets/68cdc370-9539-499f-b533-c9a0f8bb10f8)
-![3](https://github.com/user-attachments/assets/f9f861a8-2d90-4a8e-982c-0b496a2b380b)
-![2](https://github.com/user-attachments/assets/e7334548-6b6f-43b9-84c9-61a3a65937a2)
-![1](https://github.com/user-attachments/assets/c1b30296-4723-4729-ad1d-a2d4419176ee)
-![0](https://github.com/user-attachments/assets/a071a054-4afe-4fd0-8858-4177f18f607f)
-![5](https://github.com/user-attachments/assets/f6ef9cf4-f6fe-4c3d-96db-782387a0dd80)
+
+
 
 **Дизайн строки**
 
