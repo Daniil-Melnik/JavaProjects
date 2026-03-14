@@ -1,6 +1,5 @@
 
-![0](https://github.com/user-attachments/assets/3e799492-cc75-4dec-93c6-17ea73f037c8)
-
+<img href="https://github.com/user-attachments/assets/3e799492-cc75-4dec-93c6-17ea73f037c8">
 
 **Калькулятор**
 
