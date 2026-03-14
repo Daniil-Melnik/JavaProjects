@@ -49,8 +49,7 @@
   </li>
 </ul></p>
 
-<img width="600" height="379" alt="phptosmotr1" src="https://github.com/user-attachments/assets/86b37527-d523-4554-b8bd-ae5dbf831c6c" />
-<img width="600" height="474" alt="phptosmotr2" src="https://github.com/user-attachments/assets/abf2cf68-2240-470d-9b90-a5c2ced4778b" />
+
 
 **Калькулятор**
 
