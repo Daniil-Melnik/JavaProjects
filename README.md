@@ -2,9 +2,11 @@
 <ul>
   <li>ОС Windows 10 22h2</li>
   <li>IDE - IntelliJ Idea CE 2025</li>
-  <li>JDK 2025<link href="https://download.oracle.com/java/25/latest/jdk-25_windows-x64_bin.msi">скачать</link></li>
+  <li>JDK 2025 <a href="https://download.oracle.com/java/25/latest/jdk-25_windows-x64_bin.msi">скачать</a></li>
 </ul>
 
+<h1>Быстрый просмотр возможностей приложений</h1>
+Для быстрого просмотра возможностей, предоставляемых приложениями, код которых представлен в этом репозитории, добавлен каталог <a href="jars">jars</a>. В него помещены исполняемы jar-файлы приложений.
 
 **Приложение "ФотоПросмотр"**
 
