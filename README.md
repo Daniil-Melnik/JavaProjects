@@ -86,6 +86,10 @@
 
 ****
 <h2>Пятнашка 3*3</h2>
+<ul>
+  <li>код - <a href="ch11/src/main/java/testing/Pyatnashka.java">ch11/src/main/java/testing/Pyatnashka.java</a></li>
+  <li>jar - <a href="jars/Pyatnashka.jar">jars/Pyatnashka.jar</a></li>
+</ul>
 <p>Реализация игры Пятнашки в варианте поля 3*3. Правила стандартные. Поле представляет собой 9 ячеек, 8 из которых заняты числами а девятая - пустое место. Управление приложением
 <ul>
   <li>
@@ -105,22 +109,47 @@
 <p>Выбор варианта новой игры</p>
 <img src="https://github.com/user-attachments/assets/c1b30296-4723-4729-ad1d-a2d4419176ee">
 <p></p>
-<p>Выдача сообщения в случае некорректного файла</p>
+<p>Выбор файла в диалоговом окне</p>
 <img src="https://github.com/user-attachments/assets/f9f861a8-2d90-4a8e-982c-0b496a2b380b">
 <p></p>
+<p>Выдача сообщения в случае некорректного файла</p>
+<img src="https://github.com/user-attachments/assets/68cdc370-9539-499f-b533-c9a0f8bb10f8">
 <p></p>
-![4](https://github.com/user-attachments/assets/68cdc370-9539-499f-b533-c9a0f8bb10f8)
+
+<h2>Дизайн строки</h2>
+<ul>
+  <li>код - <a href="ch11/src/main/java/testing/TextDesigner">ch11/src/main/java/testing/TextDesigner</a></li>
+  <li>jar - <a href="jars/TextDesigner.jar">jars/TextDesigner.jar</a></li>
+</ul>
+<p>Приложение позволяет подобрать внешний вид строки на кириллице/латинице по следующим метрикам:
+<ul>
+  <li>Начертание</li>
+  <li>Размер</li>
+  <li>Цвет</li>
+  <li>Гарнитура</li>
+</ul>
+</p>
+<p>Приложение позволяет оценивать размеры настроенной строки в пикселях. Для подбора цвета предусмотрено два типа окна:
+<ul>
+  <li>Наборное: когда пользователь может вручную набрать цвет в формате (R,G,B)</li>
+  <li>Плиткой: когда пользователю предоставлены готовые цвета</li>
+</ul></p>
+<p>Окно приложение состоит из строки меню управления, панель с тестируемой строкой, реактивную строку ввода и панель с метриками введёной строки.</p>
+<p></p>
+<p>Выбор размера шрифта</p>
+<img src="https://github.com/user-attachments/assets/a8290f01-9109-4487-98be-6ad8bad3ef2f">
+<p></p>
+<p>Выбор начертания шрифта</p>
+<img src="https://github.com/user-attachments/assets/fa3abc8f-8e78-4372-a7bd-b359de27c2c1">
+<p></p>
+<p>Два разных окна выбора цвета</p>
+<table>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/fe7f2d2e-e73c-4c80-b3bb-f9b5d8ebf302"></td>
+    <td><img src="https://github.com/user-attachments/assets/caee7ed9-123f-45c5-aba5-8855d428eb5d"></td>
+  </tr>
+</table>
 
 
 
-**Дизайн строки**
-
-![0](https://github.com/user-attachments/assets/42b5190c-56aa-47fa-a174-b341ad467603)
-![3](https://github.com/user-attachments/assets/a8290f01-9109-4487-98be-6ad8bad3ef2f)
-![2](https://github.com/user-attachments/assets/fa3abc8f-8e78-4372-a7bd-b359de27c2c1)
-![7](https://github.com/user-attachments/assets/507328b7-2f24-4681-911f-7a46c182a72c)
-![5](https://github.com/user-attachments/assets/fe7f2d2e-e73c-4c80-b3bb-f9b5d8ebf302)
-![6](https://github.com/user-attachments/assets/caee7ed9-123f-45c5-aba5-8855d428eb5d)
-![4](https://github.com/user-attachments/assets/19e79265-7df5-4c0a-836f-73e0ebd80b47)
-![1](https://github.com/user-attachments/assets/ee58fc6d-e9ee-4e88-8416-cf0cdc6c96db)
 
