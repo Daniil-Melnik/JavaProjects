@@ -1,3 +1,10 @@
+<h1>ПО при разработке</h1>
+<ul>
+  <li>ОС Windows 10 22h2</li>
+  <li>IDE - IntelliJ Idea CE 2025</li>
+  <li>JDK 2025<link href="https://download.oracle.com/java/25/latest/jdk-25_windows-x64_bin.msi">скачать</link></li>
+</ul>
+
 
 **Приложение "ФотоПросмотр"**
 
