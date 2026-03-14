@@ -25,8 +25,8 @@
 <h1>Описание приложений</h1>
 <h2>"ФотоПросмотр"</h2>
 <ul>
-  <li>код - <a href="https://github.com/Daniil-Melnik/JavaProjects/tree/main/ch11/src/main/java/testing/PhotoViewer">ch11/src/main/java/testing/PhotoViewer</a></li>
-  <li>jar - <a href="https://github.com/Daniil-Melnik/JavaProjects/blob/main/jars/PhotoViewer.jar">jars/PhotoViewer.jar</a></li>
+  <li>код - <a href="ch11/src/main/java/testing/PhotoViewer">ch11/src/main/java/testing/PhotoViewer</a></li>
+  <li>jar - <a href="jars/PhotoViewer.jar">jars/PhotoViewer.jar</a></li>
 </ul>
 <p></p>
 
@@ -56,15 +56,28 @@
 <p>Изображение в отдельном окне с коэффициентом увеличения 0.4</p>
 <img src="photos/PhotoViewer/2.webp">
 
-**Калькулятор**
-
-![0](https://github.com/user-attachments/assets/3e799492-cc75-4dec-93c6-17ea73f037c8)
-![7](https://github.com/user-attachments/assets/12665cad-9524-4ea3-979d-2862db8b68df)
-![5](https://github.com/user-attachments/assets/1c641c8b-5509-44ce-b4cc-ed34bcc72f2b)
-![3](https://github.com/user-attachments/assets/55ce830d-c4ae-4826-a96a-159bb8d4be75)
-![6](https://github.com/user-attachments/assets/4b7a8088-a3d7-4b5f-89d4-b8a28faa94f9)
-![5_1](https://github.com/user-attachments/assets/847f89ed-8673-4880-b504-5ab88f373cf5)
-![1](https://github.com/user-attachments/assets/17e411ba-c162-4e2c-a64c-75934b23378f)
+<h2>Калькулятор</h2>
+<ul>
+  <li>код - <a href="ch11/src/main/java/testing/Calculator.java">ch11/src/main/java/testing/Calculator.java</a></li>
+  <li>jar - <a href="jars/Calculator.jar">jars/Calculator.jar</a></li>
+</ul>
+<p>Представляет собой калькулятор, позволяющий:</p> 
+<ul>
+  <li>
+    Вычилсять значения арифметических выражений содержащих операции: сложения, вычитания, целогисленного деления и умножения над целыми числами.
+  </li>
+  <li>
+    Выбирать систему счисления, в которую приводится результат: 2, 8, 10 и 16.
+  </li>
+</ul> 
+<p>Выражения могут содержать знаки операций и цифры. Длина выражения ограничена сорока символами. Результат появляется при нажатии кнопки "=". На экране присутсвует панель с 16-ю кнопками, "дисплеем" в верхней строке выражени, в нижней - результат.</p>
+<p>Управление приложением, в том числе выбор системы счисления осуществляется через строку меню в верху окна</p>
+<p>Пример вычисления</p>
+<img src="https://github.com/user-attachments/assets/17e411ba-c162-4e2c-a64c-75934b23378f">
+<p>Выбор системы счисления</p>
+<img src="https://github.com/user-attachments/assets/55ce830d-c4ae-4826-a96a-159bb8d4be75">
+<p>Пример расчета с учетом системы счиления</p>
+<img src="https://github.com/user-attachments/assets/1c641c8b-5509-44ce-b4cc-ed34bcc72f2b">
 
 **Пятнашка 3*3**
 
