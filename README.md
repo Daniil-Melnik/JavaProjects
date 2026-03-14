@@ -49,6 +49,8 @@
   </li>
 </ul></p>
 
+<img href="photos/PhotoViewer/0.webp">
+
 **Калькулятор**
 
 ![0](https://github.com/user-attachments/assets/3e799492-cc75-4dec-93c6-17ea73f037c8)
