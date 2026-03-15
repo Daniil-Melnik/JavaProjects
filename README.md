@@ -64,7 +64,7 @@
   <li>код - <a href="ch11/src/main/java/testing/Calculator.java">ch11/src/main/java/testing/Calculator.java</a></li>
   <li>jar - <a href="jars/Calculator.jar">jars/Calculator.jar</a></li>
 </ul>
-<p>Представляет собой калькулятор, позволяющий:</p> 
+<p>Калькулятор позволякт:</p> 
 <ul>
   <li>
     Вычилсять значения арифметических выражений содержащих операции: сложения, вычитания, целогисленного деления и умножения над целыми числами.
