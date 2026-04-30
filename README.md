@@ -53,14 +53,15 @@
 </ul></p>
 <p>Дейсвия экранных кнопок продублированы нажатиями клавиш клавиатуры и кнопок мыши: на главном экрае можно пользоваться мнемониками строки меню и правой/левой стрелкой. В отдельном окне нажимать +/-, ПКМ/ЛКМ для зума</p>
 <p></p>
-<p>Пример главного окна на выбранной лиректории</p>
-<img src="photos/PhotoViewer/0.webp">
+<p>Пример главного окна на выбранной директории</p>
+<img src="https://github.com/user-attachments/assets/55b9aeb9-7537-4154-b12f-ea503359f12f" />
 <p></p>
 <p>Всплывающее меню с выбором перехода в отдельное окно</p>
-<img src="photos/PhotoViewer/1.webp">
+<img src="https://github.com/user-attachments/assets/89dd70f2-c554-4ab3-9e5e-ef865467a078" />
 <p></p>
 <p>Изображение в отдельном окне с коэффициентом увеличения 0.4</p>
-<img src="photos/PhotoViewer/2.webp">
+<img src="https://github.com/user-attachments/assets/b44c6494-bf95-4d55-ab1c-d4d34790c3d9" />
+
 
 
 
