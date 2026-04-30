@@ -42,15 +42,16 @@ public class CursorList<T> extends ArrayList<T> {
      * @return индекс от 0 до 4, указывающий позицию курсора
      */
     public int getFiveElementsFlag(){
-        int f = 0;
-        if (this.size() >= 5){
-            if (currentIndex == 0) f = 0;
-            else if (currentIndex == 1) f = 1;
-            else if (currentIndex == this.size() - 2) f = 3;
-            else if (currentIndex == this.size() - 1) f = 4;
-            else f = 2;
-        } else f = currentIndex;
-
+        int f = -1;
+        if (!this.isEmpty()){
+            if (this.size() >= 5){
+                if (currentIndex == 0) f = 0;
+                else if (currentIndex == 1) f = 1;
+                else if (currentIndex == this.size() - 2) f = 3;
+                else if (currentIndex == this.size() - 1) f = 4;
+                else f = 2;
+            } else f = currentIndex;
+        }
         return f;
     }
 

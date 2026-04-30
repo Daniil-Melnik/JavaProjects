@@ -84,23 +84,25 @@ public class PhotoPanel extends JPanel implements Compositor{
      */
     @Override
     public void refresh() {
-        normalPhotoWidth = holder.getCurrentImage().getWidth(null);
-        normalPhotoHeight = holder.getCurrentImage().getHeight(null);
+        if (holder.getCurrentImage() != null){
+            normalPhotoWidth = holder.getCurrentImage().getWidth(null);
+            normalPhotoHeight = holder.getCurrentImage().getHeight(null);
 
-        this.remove(imageLabel);
+            this.remove(imageLabel);
 
-        int newWidth = (int) (normalPhotoWidth * holder.getZoom());
-        int newHeight = (int) (normalPhotoHeight * holder.getZoom());
+            int newWidth = (int) (normalPhotoWidth * holder.getZoom());
+            int newHeight = (int) (normalPhotoHeight * holder.getZoom());
 
-        if ((newHeight > 0) && (newWidth > 0)) {
-            Image newImage = holder.getCurrentImage().getScaledInstance(newWidth, newHeight, Image.SCALE_SMOOTH);
+            if ((newHeight > 0) && (newWidth > 0)) {
+                Image newImage = holder.getCurrentImage().getScaledInstance(newWidth, newHeight, Image.SCALE_SMOOTH);
 
-            iconImage.setImage(newImage);
-            imageLabel.setIcon(iconImage);
-            this.setPreferredSize(new Dimension(newWidth, newHeight));
-            this.add(imageLabel, BorderLayout.CENTER);
+                iconImage.setImage(newImage);
+                imageLabel.setIcon(iconImage);
+                this.setPreferredSize(new Dimension(newWidth, newHeight));
+                this.add(imageLabel, BorderLayout.CENTER);
+            }
+            revalidate();
+            repaint();
         }
-        revalidate();
-        repaint();
     }
 }
